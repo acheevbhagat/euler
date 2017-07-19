@@ -1,6 +1,7 @@
 """Tools for math problems."""
 
 import copy
+import time
 from abc import ABC, abstractmethod
 
 
@@ -26,7 +27,7 @@ class Tools(Singleton):
             return False
         elif n <= 3:
             return True
-        elif n % 2 == 0:
+        elif n % 2 == 0:  # if num divided by 2 has a remainder of 0, not prime
             return False
         root = int(self.sqrt(n)) + 1
         for i in range(3, root, 2):
@@ -47,7 +48,7 @@ class Tools(Singleton):
     def root(self, value, power):
         return value ** (1.0 / power)
 
-    # use Newton's method to find sqaure root of a non perfect number
+    # use Newton's method to find square root of a non perfect number
     def sqrt(self, val, approx=1):
         betterapprox = 0.5 * (approx + val/approx)
         if (betterapprox == approx):
@@ -148,6 +149,24 @@ class Tools(Singleton):
         self.sort(res)
         return res
 
+
+class Timer(object):  # create timer object to time program
+
+    def __init__(self):
+        self.time = None
+
+    def start(self):
+        self.time = time.clock()
+
+    def stop(self):
+        tempTime = time.clock() - self.time
+        self.time = tempTime
+
+    def getTimer(self):
+        return self.time
+
+    def reset(self):
+        self.time = None
 
 """Data Structures"""
 

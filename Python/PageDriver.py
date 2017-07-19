@@ -2,9 +2,10 @@ from Page1 import Page1
 import time
 import Tools
 
-startTime = time.clock()
-pg = Page1()
-lists = Tools.Tools()
+time = Tools.Timer()
+pg = Page1()  # import page 1 solutions
+
+time.start()
 
 print("Problem 1: " + str(pg.mult3_5()))  # problem 1 - 233168
 print("Problem 2: " + str(pg.evenFib()))  # problem 2 - 4613732
@@ -20,4 +21,6 @@ print("Problem 11: " + str(pg.gridProd()))  # problem 11 - 70600674
 print("Problem 12: " + str(pg.triangularNumber()))  # problem 12 - 76576500
 print("Problem 13: " + str(pg.largeSum()))  # problem 13 - 2493530798
 
-print("Running time - %s seconds" % (time.clock() - startTime))
+time.stop()
+
+print("Running time - %s seconds" % (time.getTimer()))
