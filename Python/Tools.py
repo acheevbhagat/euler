@@ -168,6 +168,7 @@ class Timer(object):  # create timer object to time program
     def reset(self):
         self.time = None
 
+
 """Data Structures"""
 
 
