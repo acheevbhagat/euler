@@ -1,0 +1,107 @@
+#![allow(non_snake_case)]
+
+use Tools;
+
+pub trait page1 {
+
+    fn mult3_5(&self) -> u32
+    {
+        let mut res: u32 = 0;
+        for i in 1..1000 {
+            if i % 3 == 0 || i % 5 == 0 {
+                res += i;
+            }
+        }
+        res
+    }
+
+    fn evenFib(&self) -> u32
+    {
+        let mut i = 2;
+        let mut prev = 1;
+        let mut sum: u32 = 0;
+        while i < 4000000 {
+            if i % 2 == 0 {
+                sum += i;
+            }
+            let temp = i + prev;
+            prev = i;
+            i = temp;
+        }
+        sum
+    }
+
+    fn largestPrime(&self) -> u64
+    {
+        let mut largestprime: u64 = 600851475143;
+        let mut currentdivisor: u64 = 2;
+        while largestprime > currentdivisor {
+            if largestprime % currentdivisor == 0 {
+                largestprime = largestprime / currentdivisor;
+                currentdivisor = 2;
+            } else {
+                currentdivisor += 1;
+            }
+        }
+        currentdivisor
+    }
+
+    fn pal(&self) -> u32
+    {
+        let mut res = 0;
+        for x in 100..999 {
+            for y in x..999 {
+                if Tools::palindrome(x * y) && (x * y > res) {
+                    res = x * y;
+                }
+            }
+        }
+        res
+    }
+
+    fn smallestMult(&self) -> u64
+    {
+        let mut res: Vec<u64> = Vec::new();
+        for i in 1..21 {
+            let mut temp = Tools::primeFactors(i);
+            for z in &res {
+                if temp.contains(&z) {
+                    let mut counter: usize = 0;
+                    for j in &temp {
+                        if j == z {
+                            break;
+                        } else {
+                            counter += 1;
+                        }
+                    }
+                    temp.remove(counter);
+                }
+            }
+            res.extend(&temp);
+        }
+        let mut val: u64 = 1;
+        for x in res {
+            val = val * x;
+        }
+        val
+    }
+
+    fn diffsquares(&self) -> u64
+    {
+        let mut sumsquare: i64 = 0;
+        let mut squaresum: i64 = 0;
+        for i in 0..101 {
+            sumsquare += i * i;
+            squaresum += i;
+        }
+        squaresum = squaresum * squaresum;
+        Tools::abs(squaresum - sumsquare)
+    }
+
+    fn numPrime(&self) -> u64
+    {
+        let mut count: u64 = 0;
+        let mut start: u64 = 2;
+        while count != 10001 {
+            if Tools::prime(start) {
+                count += 1

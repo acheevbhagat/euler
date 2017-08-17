@@ -131,3 +131,9 @@ pub fn sieve(n: u64) -> Vec<u64>
     }
     res
 }
+
+pub struct Node<T>(_varargs: &[T]) {
+	data: Vec<T> = _varargs.to_vec(),
+}
+
+impl <T> Node<T>

@@ -317,6 +317,51 @@ class OrderedList(LinkedList):
                 cont = False
                 return True
 
+class Queue(LinkedList):
+	def __init__(self, other=None):
+		super().__init__(other)
+
+	def enqueue(self, val):
+		self.add(val)
+
+	def dequeue(self):
+		if not self.isEmpty():
+			res = self.get(1)
+			self.delete(1)
+			return res
+		else:
+			return None
+
+	def peek(self):
+		return get(1)
+
+	def isEmpty(self):
+		if self.length() == 0:
+			return True
+		return False
+
+class Stack(LinkedList):
+	def __init__(self, other=None):
+		super().__init__(other)
+
+	def push(self, val):
+		self.add(val, 1)
+
+	def pop(self):
+		if not self.isEmpty():
+			res = self.get(1)
+			self.delete(1)
+			return res
+		else:
+			return None
+
+	def peek(self):
+		return self.get(1)
+
+	def isEmpty(self):
+		if self.length() == 0:
+			return True
+		return False
 
 class Tree(ABC):
 
