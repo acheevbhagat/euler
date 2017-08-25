@@ -195,5 +195,10 @@ pub trait page1 {
 			m.push(s.split_whitespace().map(|s| s.parse::<u64>().unwrap()).collect());
 		}
 		drop(L);
+		let mut res: u64 = 0;
+		for i in 0..20 {
+			for j in 0..16 {
+			}
+		}
 	}
 }

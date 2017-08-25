@@ -149,6 +149,17 @@ class Tools(Singleton):
         self.sort(res)
         return res
 
+    def collatz(self, num):
+        val = num
+        res = 1
+        while val != 1:
+            if val % 2 == 0:
+                val = val / 2
+            else:
+                val = (val * 3) + 1
+            res += 1
+        return res
+
 
 class Timer(object):  # create timer object to time program
 

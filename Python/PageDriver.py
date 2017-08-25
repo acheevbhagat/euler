@@ -3,6 +3,7 @@ import time
 import Tools
 
 time = Tools.Timer()
+tools = Tools.Tools()
 pg = Page1()  # import page 1 solutions
 
 time.start()
@@ -19,7 +20,8 @@ print("Problem 9: " + str(pg.pythTriplet()))  # problem 9 - 31875000
 print("Problem 10: " + str(pg.sumPrime()))  # problem 10 - 142913828922
 print("Problem 11: " + str(pg.gridProd()))  # problem 11 - 70600674
 print("Problem 12: " + str(pg.triangularNumber()))  # problem 12 - 76576500
-print("Problem 13: " + str(pg.largeSum()))  # problem 13 - 2493530798
+print("Problem 13: " + str(pg.largeSum())) # problem 13 - 2493530798
+print("Problem 14: " + str(pg.collatzSeq())) # problem 14 - 837799
 
 time.stop()
 
